@@ -1,0 +1,140 @@
+.nav3{
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+}
+.ctn-nav{
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: space-around;
+  position: fixed!important;
+  background-color: #fff;
+  z-index: 2;
+  border: 1px solid #f2f2f2 !important;
+}
+.navi{
+  display: flex;
+  margin: auto;
+}
+.navia{
+  height: 100%;
+  width: 550px;
+  display: flex;
+  justify-content: space-around;
+}
+.navib{
+  height: 100%;
+  width: 550px;
+  display: flex;
+  justify-content: space-around;
+}
+.menu-item-login{
+width: auto;
+height: 42px;
+display: flex;
+margin-right: 6px;
+flex-direction: row;
+justify-content: space-around;
+background-color: white;
+appearance: none;
+cursor: pointer;
+display: inline-block;
+font-family: inherit;
+font-size: 14px;
+font-weight: 600;
+line-height: 18px;
+outline: none;
+overflow: visible;
+padding: 12px;
+text-align: inherit;
+text-decoration: none;
+user-select: auto;
+position: relative;
+white-space: nowrap;
+color: #222222;
+}
+
+.page-footer {
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    padding: 3.75rem 1.25rem;
+}
+.inner {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.footer-tab {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  width: 100%;
+}
+.footer-nav-title{
+font-family: 'Montserrat', sans-serif;
+font-size: 1rem;
+font-weight: 900;
+display: block;
+margin-bottom: 1.25rem;
+}
+.page-footer a:hover {
+  color: #fff;
+text-decoration: underline;
+}
+.footer_nav_menu{
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+.page-footer a {
+    color: #fff;
+    text-decoration: none;
+}
+.page-footer li {
+    list-style-type: none;
+}
+.menu-about{
+  padding-left: 0px;
+}
+.footer-follow{
+  display: flex;
+  justify-content:space-between ;
+  border-top: .0625rem solid #222;
+  border-bottom: .0625rem solid #222;
+  padding-top: .8125rem;
+  padding-bottom: .8125rem;
+  margin-bottom: 3.75rem;
+
+}
+.nav-follow{
+  flex:0.8;
+  width: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.title_follow{
+  margin: auto 8px;
+  display: flex;
+  justify-content:space-around;
+  width: 100px;
+}
+.partner-logos{
+  display: flex;
+  justify-content: space-between;
+}
+.partner_logos_item{
+  background-color: #fff;
+  border-radius: .25rem;
+  margin-left: 16px;
+}
+.ttvfb{
+  display: flex;
+  padding-left: 8px;
+}
+.ttvfb-i{
+  margin: auto;
+}
+.menu-item{
+  margin: 8px 0;
+}
