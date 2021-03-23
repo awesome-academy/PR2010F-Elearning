@@ -1,0 +1,15 @@
+<div class="inner-body">
+<div class="ciFKmO">
+  <div class="contain">
+    <input type="text" placeholder="Search...">
+    <div class="search"></div>
+  </div>
+</div>
+  <h4 class="d-flex justify-content-between mb-4">
+    <span>All Course</span>
+  </h4>
+<div class="course-index">
+<%= render @courses%>
+</div>
+<%= will_paginate @courses, list_classes: %w(pagination justify-content-end) , class:'paginate'%>
+</div>

@@ -1,0 +1,16 @@
+<%= link_to course_url(course) ,class:'course-l' do%>
+<div class="c4rd">
+  <div class="eaeSkS">
+    <div class="jVgLJd">
+      <img class="card-img-top" src="https://www.gettyimages.in/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" alt="">
+    </div>
+  </div>
+    <span class="gUwoNY"><%=course.questions.count%> questions</span>
+  <div class="hxYrsi">
+    <!-- <div class="css-4v50qp"> -->
+      <div class="infor"><%= course.title %></div>
+      <div class="infor"><span><%= course.description %></span></div>
+    <!-- </div> -->
+  </div>
+</div>
+<%end%>

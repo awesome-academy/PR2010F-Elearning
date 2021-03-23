@@ -15,11 +15,10 @@ gem 'jbuilder', '~> 2.7'
 gem "devise"
 gem "omniauth", "~> 1.9.1"
 gem "omniauth-facebook"
+
 gem 'cancancan'
 gem 'rails_admin'
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
+gem 'will_paginate-bootstrap4'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap-sass'
