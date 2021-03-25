@@ -72,7 +72,7 @@
                   <div class="bd-form">
                     <div class="form-login">
                       <div class="form">
-                        <%= form_for(student_session_url, url: session_path(resource_name)) do |f| %>
+                        <%= form_for(resource_name, as: resource_name, url: session_path(resource_name)) do |f| %>
                         <div class="fi">
                           <%= f.label :"Username or email" , class: 'form-label' %>
                           <%= f.email_field :email,class: 'form-control', autocomplete: "email" %>
