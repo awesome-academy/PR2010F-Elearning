@@ -1,6 +1,7 @@
 <div class="inner-body">
   <h3>Settings</h3>
-  <%= link_to "Back", :back %>
+    <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i>'.html_safe, :back%>
+    <%= link_to "Back", :back %>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="row">

@@ -1,25 +1,36 @@
 class TestsController < ApplicationController
   before_action :find_test, only: [:show]
-  before_action :logged_in_user, only: [:create]
+  before_action :logged_in_user, only: [:new,:create]
+
+
+  def new
+    @test = Test.new
+    @results = @test.results.build
+    @course = Course.find_by id: (params[:course_id])
+  end
 
   def show
-      @course = @test.course
-      @questions = @course.questions.sample(@test.quantity)
-      @question = @questions.first
-      if params[:qid]
-         @questions = @course.questions
-         @question = @questions.find_by id:  params[:qid]
-       end
-    end
+    @course = @test.course
+    @results = @test.results
+  end
 
   def create
+    i = 0
     @test = current_student.tests.build test_params
-    if @test.save
-      redirect_to @test
+    @test.results.each do |result|
+      if result.answer.correct == true
+        i = i + 1
+      end
+      @test.mark = i
+    end
+    if @test.save!
+      flash[:success] = "You can review the results in the report section"
+      redirect_to root_path
     else
       render :new
     end
   end
+
   private
   def find_test
     @test = Test.find_by id: params[:id]
@@ -30,6 +41,6 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit(:course_id,:student_id)
+    params.require(:test).permit(:course_id,:student_id, results_attributes:[:question_id,:answer_id])
   end
 end

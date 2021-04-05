@@ -1,4 +1,26 @@
-<h1>Students#show</h1>
-<p>Find me in app/views/students/show.html.erb</p>
 <span class="_1p3joam"><strong><%= @student.name %></strong>,</span>
 <span class="_1p3joam"><%= @student.email %>·</span>
+
+<div class="container">
+  <h2>Contextual Classes</h2>
+  <table class="table">
+    <thead>
+      <tr class="table-primary">
+        <th>Exam</th>
+        <th>Start time</th>
+        <th>Result</th>
+        <th>Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tests.each do |test|%>
+      <tr class="table-danger">
+        <td><span><%= test.course.title %></span></td>
+        <td><%= time_ago_in_words(test.created_at) %></td>
+        <td><%=test.mark%>/<%=test.course.questions.count%></td>
+        <td><%= link_to '<i class="fas fa-info-circle"></i>'.html_safe, test_path(test), class:'btn btn-success'%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

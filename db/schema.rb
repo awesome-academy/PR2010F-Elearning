@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_024728) do
+ActiveRecord::Schema.define(version: 2021_04_05_085119) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -70,6 +70,10 @@ ActiveRecord::Schema.define(version: 2021_03_29_024728) do
   end
 
   create_table "results", force: :cascade do |t|
+    t.integer "test_id"
+    t.integer "question_id"
+    t.integer "answer_id"
+    t.float "mark"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -89,7 +93,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_024728) do
     t.datetime "remember_created_at"
     t.string "provider"
     t.string "uid"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
@@ -100,6 +104,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_024728) do
     t.integer "student_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "mark"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

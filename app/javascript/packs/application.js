@@ -9,13 +9,19 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
 import "../stylesheets/application"
+import "@fortawesome/fontawesome-free/css/all"
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 require("jquery")
 require("bootstrap")
-import "../stylesheets/application";
+require("@rails/ujs").start()
+require("turbolinks").start()
+require("@rails/activestorage").start()
+require("channels")
+
 document.addEventListener("turbolinks:load", function() {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()

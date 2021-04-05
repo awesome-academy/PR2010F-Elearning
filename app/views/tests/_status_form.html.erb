@@ -1,34 +1,48 @@
-<header class="styles__TopContent-sc-468pf5-0 licRHD question-top-content__QuestionTopContent-sc-16zbque-0 daoHFe">
-  <div class="question-title__TitleWrapper-sc-1aryxsk-0 jtACXH">
-    <span role="heading" aria-level="1" font-size="4.333333333333333" data-functional-selector="block-title" class="question-title__Title-sc-1aryxsk-1 goijla">
-      <%= @question.title %>
-    </span>
-  </div>
-  <div class="top-right-button-space__TopRightButtonSpace-gg65oe-0 eIeXcV">
-    <div class="fullscreen__Wrapper-sc-1y5utqb-0 bMowOD">
-      <div class="fullscreen__ButtonWrapper-sc-1y5utqb-1 dtqCvM" aria-expanded="false"></div>
-    </div>
-  </div>
-</header>
-<div class="fGChPb">
-  <div class="kNvHMs">
-    <img class="c4f" src="https://www.gettyimages.in/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" alt="">
-  </div>
-</div>
-<div class="styles__Wrapper-v1iz1v-1 hhHkpR question-choices__QuestionChoices-vfgbd-0 jFoRjK">
-  <% @question.answers.each_with_index do |answer, i|%>
-  <div style="background: <%= Answer::ANSWER_COLOR[i] %>" class="card__Card-lblpdo-0 iObVhe styles__Card-v1iz1v-2 joPWYH" data-functional-selector="answer-0" data-mapped-index="0" class="color<%= i %>">
-    <div class="card-icon__IconWrapper-sc-1gz7w2x-0 dYtYYS">
-      <span class="icon__Icon-xvsbpg-0 fpITzr card-icon__icon" style="display: inline-block; vertical-align: middle; width: 5.232vmin; height: 5.232vmin;">
-        <svg id="TRIANGLE" data-functional-selector="icon" viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" style="paint-order: stroke;">
-          <path style="fill: inherit;" d="<%= Answer::ANSWER_ICON[i] %>">
-          </path>
-        </svg>
+<%= form_for @test do |test| %>
+<%= test.hidden_field :course_id, value: params[:course_id] %>
+<% @course.questions.each.with_index(1) do |question,index|%>
+<div id="tab-<%=index%>" class="tab-content">
+  <%= test.fields_for :results do |result| %>
+  <header class="styles__TopContent-sc-468pf5-0 licRHD question-top-content__QuestionTopContent-sc-16zbque-0 daoHFe">
+    <div class="question-title__TitleWrapper-sc-1aryxsk-0 jtACXH">
+      <span role="heading" aria-level="1" font-size="4.333333333333333" data-functional-selector="block-title" class="question-title__Title-sc-1aryxsk-1 goijla">
+        <%= index%>.<%= question.title%>
       </span>
     </div>
-    <span data-functional-selector="question-choice-text-0" font-size="2.616" class="cCfolR">
-      <span data-break-long-words-text="true"><%= answer.content %></span>
-    </span>
+    <div class="top-right-button-space__TopRightButtonSpace-gg65oe-0 eIeXcV">
+      <div class="fullscreen__Wrapper-sc-1y5utqb-0 bMowOD">
+        <div class="fullscreen__ButtonWrapper-sc-1y5utqb-1 dtqCvM" aria-expanded="false"></div>
+      </div>
+    </div>
+  </header>
+  <div class="fGChPb">
+    <div class="kNvHMs">
+      <img class="c4f" src="https://www.gettyimages.in/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" alt="">
+    </div>
+  </div>
+  <div class="styles__Wrapper-v1iz1v-1 hhHkpR question-choices__QuestionChoices-vfgbd-0 jFoRjK">
+    <%= result.hidden_field :question_id, value: question.id %>
+    <%question.answers.each_with_index do |answer, i|%>
+    <div class="card__Card-lblpdo-0 iObVhe styles__Card-v1iz1v-2 joPWYH" data-functional-selector="answer-0" data-mapped-index="0" id="color<%= i %>">
+      <div class="card-icon__IconWrapper-sc-1gz7w2x-0 dYtYYS">
+        <span class="icon__Icon-xvsbpg-0 fpITzr card-icon__icon" style="display: inline-block; vertical-align: middle; width: 5.232vmin; height: 5.232vmin;">
+          <svg id="TRIANGLE" data-functional-selector="icon" viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" style="paint-order: stroke;">
+            <path style="fill: inherit;" d="<%= Answer::ANSWER_ICON[i] %>">
+            </path>
+          </svg>
+        </span>
+      </div>
+      <span data-functional-selector="question-choice-text-0" font-size="2.616" class="cCfolR">
+        <label id="as<%= answer.id %>">
+          <span data-break-long-words-text="true"><%= answer.content %></span>
+          <%= result.radio_button :answer_id, answer.id %>
+        </label>
+      </span>
+    </div>
+    <% end %>
   </div>
   <% end %>
 </div>
+<%end%>
+<%= test.submit "Submit", data: { confirm: "Submit the test? You can review the results in the report section" }, class:"btn btn-danger btn-block" %>
+<% end %>

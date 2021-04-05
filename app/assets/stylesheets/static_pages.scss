@@ -44,6 +44,7 @@
   display: flex;
   justify-content:space-around;
   flex-direction: row;
+  margin: auto;
 }
 .item3{
   margin: 8px;
@@ -220,6 +221,7 @@ text-decoration: underline;
 }
 body{
   font-size: 16px;
+  background: #fff!important;
 }
 .h-form{
   display: flex;

@@ -40,7 +40,20 @@
      box-sizing: border-box;
      cursor: pointer;
  }
+ #color0{
+ background-color: #e21b3c
+ }
+ #color1{
+ background-color: #1368ce
+ }
 
+ #color2{
+ background-color: #d89e00
+ }
+
+ #color3{
+ background-color: #26890c
+ }
 
  .cCfolR {
      font-size: calc(0.5rem + 2.72267vmin);
@@ -71,7 +84,7 @@
 }
  // hover
  .iObVhe:hover {
-     background-color: rgb(208, 25, 55);
+     background-color: #f283dc!important;
  }
  .dUpHJY:hover {
      background-color: rgb(18, 96, 190);
@@ -199,9 +212,10 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 0.125rem 0.25rem 0px;
     overflow-wrap: break-word;
 }
 .list-item{
-  margin: 8px;
+  margin: auto;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap
 }
 .id-items {
   background-color: #FF9696 !important;
@@ -212,6 +226,7 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 0.125rem 0.25rem 0px;
   display: flex;
   justify-content: space-around;
   cursor: pointer;
+  margin: 8px;
 }
 .marqs{
   margin: auto;
@@ -232,4 +247,52 @@ background-color: #d89e00
 
 .color3{
 background-color: #26890c
+}
+.jFoRjK input{
+  position: absolute;
+  visibility: hidden
+}
+
+.jFoRjK label {
+  cursor: pointer;
+  display: block;
+  margin: auto;
+}
+ul.tabs{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+ul.tabs li{
+  background: none;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+ul.tabs li.current{
+  background: #f941ff;
+  color: white;
+  width: 43px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.tab-content{
+  display: none;
+  background: #fff;
+  padding: 15px;
+}
+
+.tab-content.current{
+  display: inherit;
+}
+.violet{
+  background: #f941ff;
+  color: white;
+  width: 43px;
+  text-align: center;
+  border-radius: 5px;
+  display: block;
 }

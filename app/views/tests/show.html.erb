@@ -1,50 +1,126 @@
+<%= javascript_pack_tag 'result', 'data-turbolinks-track': 'reload' %>
 <div class="row">
-  <div class="col-md-8", id="vques">
-    <%= render 'status_form'%>
-  </div>
-  <div class="col-md-4">
-    <div class="test-view__left not-for-mobile">
-      <div class="flexx">
-        <div class="goijla">Question List</div>
+  <div class="col-md-9", id="vques">
+    <% @results.each.with_index(1) do |result,index|%>
+    <div id="tab-<%=index%>" class="tab-content">
+      <header class="styles__TopContent-sc-468pf5-0 licRHD question-top-content__QuestionTopContent-sc-16zbque-0 daoHFe">
+        <div class="question-title__TitleWrapper-sc-1aryxsk-0 jtACXH">
+          <span role="heading" aria-level="1" font-size="4.333333333333333" data-functional-selector="block-title" class="question-title__Title-sc-1aryxsk-1 goijla">
+            <%= index%>.<%= result.question.title%>
+          </span>
+        </div>
+        <div class="top-right-button-space__TopRightButtonSpace-gg65oe-0 eIeXcV">
+          <div class="fullscreen__Wrapper-sc-1y5utqb-0 bMowOD">
+            <div class="fullscreen__ButtonWrapper-sc-1y5utqb-1 dtqCvM" aria-expanded="false"></div>
+          </div>
+        </div>
+      </header>
+      <div class="fGChPb">
+        <div class="kNvHMs">
+          <img class="c4f" src="https://www.gettyimages.in/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" alt="">
+        </div>
       </div>
-      <hr>
-      <div class="h-full flex flex-col">
-        <div class="flex flex-col label-question justify-center">
-          <div class="flex vs:flex-col ls:flex-row">
-            <div class="flex items-center label-question__content">
-              <div class="border-question border-available"></div>
-              <div class="text ml-3">Available</div>
+      <div class="styles__Wrapper-v1iz1v-1 hhHkpR question-choices__QuestionChoices-vfgbd-0 jFoRjK">
+        <%result.question.answers.each_with_index do |answer, i|%>
+        <% if answer.correct == true%>
+          <% if result.answer_id == answer.id%>
+            <div style="background:#66bf39" class="card__Card-lblpdo-0 iObVhe styles__Card-v1iz1v-2 joPWYH" data-functional-selector="answer-0" data-mapped-index="0">
+              <div class="card-icon__IconWrapper-sc-1gz7w2x-0 dYtYYS">
+                <span class="icon__Icon-xvsbpg-0 fpITzr card-icon__icon" style="display: inline-block; vertical-align: middle; width: 5.232vmin; height: 5.232vmin;">
+                  <svg id="TRIANGLE" data-functional-selector="icon" viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" style="paint-order: stroke;">
+                    <path style="fill: inherit;" d="<%= Answer::ANSWER_ICON[i] %>">
+                    </path>
+                  </svg>
+                </span>
+              </div>
+              <span data-functional-selector="question-choice-text-0" font-size="2.616" class="cCfolR">
+                <span data-break-long-words-text="true"><%= answer.content %></span>
+              </span>
+              <%= image_tag current_student.avatar_thumbnail,class:"imageee"%>
+              <div class="question-choice-content__IconWrapper-z7z2ef-1 hRgRWQ">
+                <span class="icon__Icon-xvsbpg-0 fpITzr" style="display: inline-block; vertical-align: middle; width: 64px; height: 64px;">
+                  <svg id="check" data-functional-selector="icon" viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" style="paint-order: stroke;">
+                    <path style="fill: rgb(255, 255, 255);" d="M21.9659268,7.29355403 L13.4414162,16.6716376 L9.95856573,13.6333101 L6.28048804,17.3134693 L13.6554761,24.1926221 L25.8261396,10.805116 L21.9659268,7.29355403 Z">
+                    </path>
+                  </svg>
+                </span>
+              </div>
             </div>
-            <div class="flex items-center label-question__content vs:ml-0 ls:ml-5">
-              <div class="border-question border-answered"></div>
-              <div class="text ml-3">Answered</div>
-            </div>
-            <div class="flex items-center label-question__content vs:ml-0 ls:ml-5">
-              <div class="border-question border-not-view"></div>
-              <div class="text ml-3">Not yet</div>
-            </div>
-          </div>
-          <div class="note flex items-center">
-            <span role="img" aria-label="exclamation-circle" class="anticon anticon-exclamation-circle">
-              <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="exclamation-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"></path></svg>
+          <%else%>
+        <div style="background:#66bf39" class="card__Card-lblpdo-0 iObVhe styles__Card-v1iz1v-2 joPWYH" data-functional-selector="answer-0" data-mapped-index="0">
+          <div class="card-icon__IconWrapper-sc-1gz7w2x-0 dYtYYS">
+            <span class="icon__Icon-xvsbpg-0 fpITzr card-icon__icon" style="display: inline-block; vertical-align: middle; width: 5.232vmin; height: 5.232vmin;">
+              <svg id="TRIANGLE" data-functional-selector="icon" viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" style="paint-order: stroke;">
+                <path style="fill: inherit;" d="<%= Answer::ANSWER_ICON[i] %>">
+                </path>
+              </svg>
             </span>
-            <p class="ml-2">Click on the question for quick view</p>
           </div>
-          <hr>
-        </div>
-        <div class="question-list">
-          <div class="list-item">
-            <% @questions.each.with_index(1) do |question,index|%>
-            <% if question.id? %>
-            <%= link_to test_path(@test, :qid => question.id), method: :get, class:'nonelik', remote: true do %>
-            <div class="id-items">
-              <span class="marqs"><%= index %></span>
-            </div>
-            <%end%>
-            <%end%>
-            <%end%>
+          <span data-functional-selector="question-choice-text-0" font-size="2.616" class="cCfolR">
+            <span data-break-long-words-text="true"><%= answer.content %></span>
+          </span>
+          <div class="question-choice-content__IconWrapper-z7z2ef-1 hRgRWQ">
+            <span class="icon__Icon-xvsbpg-0 fpITzr" style="display: inline-block; vertical-align: middle; width: 64px; height: 64px;">
+              <svg id="check" data-functional-selector="icon" viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" style="paint-order: stroke;">
+                <path style="fill: rgb(255, 255, 255);" d="M21.9659268,7.29355403 L13.4414162,16.6716376 L9.95856573,13.6333101 L6.28048804,17.3134693 L13.6554761,24.1926221 L25.8261396,10.805116 L21.9659268,7.29355403 Z">
+                </path>
+              </svg>
+            </span>
           </div>
         </div>
+        <%end%>
+        <%else%>
+        <% if result.answer_id == answer.id%>
+        <div style="background:#f283dc" class="card__Card-lblpdo-0 iObVhe styles__Card-v1iz1v-2 joPWYH" data-functional-selector="answer-0" data-mapped-index="0">
+          <div class="card-icon__IconWrapper-sc-1gz7w2x-0 dYtYYS">
+            <span class="icon__Icon-xvsbpg-0 fpITzr card-icon__icon" style="display: inline-block; vertical-align: middle; width: 5.232vmin; height: 5.232vmin;">
+              <svg id="TRIANGLE" data-functional-selector="icon" viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" style="paint-order: stroke;">
+                <path style="fill: inherit;" d="<%= Answer::ANSWER_ICON[i] %>">
+                </path>
+              </svg>
+            </span>
+          </div>
+          <span data-functional-selector="question-choice-text-0" font-size="2.616" class="cCfolR">
+            <span data-break-long-words-text="true"><%= answer.content %></span>
+          </span>
+          <%= image_tag current_student.avatar_thumbnail,class:"imageee"%>
+          <div class="question-choice-content__IconWrapper-z7z2ef-1 dWcJl">
+            <span class="icon__Icon-xvsbpg-0 fpITzr" style="display: inline-block; vertical-align: middle; width: 64px; height: 64px;">
+              <svg id="cross" data-functional-selector="icon" viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" style="paint-order: stroke;">
+                <path style="fill: rgb(255, 255, 255);" d="M21.4352896,7.29315397 L16.4852814,12.2358635 L11.5352732,7.29315397 L7.29390115,11.534526 L12.216469,16.4852814 L7.29390115,21.4360368 L11.5339288,25.6760644 L16.4852814,20.7695678 L21.4366339,25.6760644 L25.6750612,21.4376372 L20.7955092,16.4852814 L25.6750612,11.5329256 L21.4352896,7.29315397 Z"></path>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <%else%>
+        <div style="background:#ff3355" class="card__Card-lblpdo-0 iObVhe styles__Card-v1iz1v-2 joPWYH" data-functional-selector="answer-0" data-mapped-index="0">
+          <div class="card-icon__IconWrapper-sc-1gz7w2x-0 dYtYYS">
+            <span class="icon__Icon-xvsbpg-0 fpITzr card-icon__icon" style="display: inline-block; vertical-align: middle; width: 5.232vmin; height: 5.232vmin;">
+              <svg id="TRIANGLE" data-functional-selector="icon" viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" style="paint-order: stroke;">
+                <path style="fill: inherit;" d="<%= Answer::ANSWER_ICON[i] %>">
+                </path>
+              </svg>
+            </span>
+          </div>
+          <span data-functional-selector="question-choice-text-0" font-size="2.616" class="cCfolR">
+            <span data-break-long-words-text="true"><%= answer.content %></span>
+          </span>
+          <div class="question-choice-content__IconWrapper-z7z2ef-1 dWcJl">
+            <span class="icon__Icon-xvsbpg-0 fpITzr" style="display: inline-block; vertical-align: middle; width: 64px; height: 64px;">
+              <svg id="cross" data-functional-selector="icon" viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" style="paint-order: stroke;">
+                <path style="fill: rgb(255, 255, 255);" d="M21.4352896,7.29315397 L16.4852814,12.2358635 L11.5352732,7.29315397 L7.29390115,11.534526 L12.216469,16.4852814 L7.29390115,21.4360368 L11.5339288,25.6760644 L16.4852814,20.7695678 L21.4366339,25.6760644 L25.6750612,21.4376372 L20.7955092,16.4852814 L25.6750612,11.5329256 L21.4352896,7.29315397 Z"></path>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <%end%>
+        <% end %>
+        <% end %>
       </div>
     </div>
+    <%end%>
   </div>
+  <div class="col-md-3">
+    <%= render 'questions_list'%>
+  </div>
+</div>

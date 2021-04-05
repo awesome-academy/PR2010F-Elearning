@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :categories
   resources :tests
+  resources :results
   root 'static_pages#index'
 
   namespace :admin do

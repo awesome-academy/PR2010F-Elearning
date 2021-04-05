@@ -14,14 +14,13 @@
           <li class="gqLYar"><b>143.5 </b>plays</li>
           <li class="gqLYar"><b>937.4 </b>players</li>
         </ul>
-        <%= form_for (@test) do |f| %>
-        <div class="des"><%= f.label :"Select the number of questions you want to test" %></div>
+        <div class="des">Select the number of questions you want to test</div>
         <div class="quantity">
           <div class="sub">
             <input class="bora" type="button" value="-" id="subs"/>
           </div>
           <div class="oinput">
-            <%= f.text_field :quantity, id:'numOFques', value:'1', class: 'form-control' %>
+            <input id="numOFques" value="1" class="form-control" type="text">
           </div>
           <div class="add">
             <input class="bora" type="button" value="+" id="adds"/>
@@ -32,9 +31,8 @@
             <%= link_to 'Back', courses_path, class:"btn btn-secondary btn-block"%>
           </div>
           <div class="playtet">
-            <%= f.hidden_field :nqOFc, id:'nqOFc', value: @course.questions.count %>
-            <%= f.hidden_field:course_id, value: @course.id %>
-            <%= f.submit "Play", class:"btn btn-danger btn-block", id: "special" %>
+            <%= hidden_field :nqOFc, id:'nqOFc', value: @course.questions.count %>
+            <%= link_to 'Play', new_test_path(course_id: @course.id), class:"btn btn-danger btn-block"%>
           </div>
           <div aria-expanded="false">
             <div class="actions__ShareWrapper-ysm04w-2 kSUIVA">
@@ -57,7 +55,6 @@
             </span>
           </div>
         </div>
-        <%end%>
 
         <div class="des">
           <div class="infor"><span><%= @course.description %></span></div>
