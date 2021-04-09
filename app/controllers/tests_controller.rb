@@ -18,10 +18,11 @@ class TestsController < ApplicationController
     i = 0
     @test = current_student.tests.build test_params
     @test.results.each do |result|
-      if result.answer.correct == true
-        i = i + 1
-      end
       @test.mark = i
+      if result.answer.present? && result.answer.correct?
+          i = i + 1
+          @test.mark = i
+      end
     end
     if @test.save!
       flash[:success] = "You can review the results in the report section"

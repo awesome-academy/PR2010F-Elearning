@@ -13,14 +13,15 @@
       </tr>
     </thead>
     <tbody>
-      <% @tests.each do |test|%>
-      <tr class="table-danger">
+      <% @tests.each_with_index do |test,i|%>
+      <tr class="<%= Result::RESULT_COLOR[i] %>">
         <td><span><%= test.course.title %></span></td>
         <td><%= time_ago_in_words(test.created_at) %></td>
         <td><%=test.mark%>/<%=test.course.questions.count%></td>
         <td><%= link_to '<i class="fas fa-info-circle"></i>'.html_safe, test_path(test), class:'btn btn-success'%></td>
       </tr>
       <% end %>
+      <%= will_paginate @tests, list_classes: %w(pagination justify-content-end) , class:'paginate'%>
     </tbody>
   </table>
 </div>

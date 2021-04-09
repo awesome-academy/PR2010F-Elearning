@@ -4,6 +4,14 @@ class Course < ApplicationRecord
   has_many :answers, through: :questions
   has_many :tests
   has_one_attached :img_course
+  
+  def self.search(search)
+    if search
+      where(["title LIKE ?","%#{search}%"])
+    else
+      all
+    end
+  end
   def avatar_thumbnail
     if img_course.attached?
       img_course.variant(resize: "150x150!").processed

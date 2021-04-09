@@ -1,5 +1,9 @@
 .full-body{
- background-color: #cddfef
+ background-color: #cddfef;
+ -webkit-user-select: none;
+}
+.body{
+  background-color: #fff;
 }
 .nav3{
   background-color: #cddfef;
@@ -221,7 +225,7 @@ text-decoration: underline;
 }
 body{
   font-size: 16px;
-  background: #fff!important;
+  background: #f2f2f2!important;
 }
 .bodya{
   background-color: #e6f0f7;
@@ -534,4 +538,9 @@ justify-content: space-around;
 }
 .form-control{
   margin-top: 12px;
+#course_title{
+    width: 100%;
+}
+.fff{
+  width: 95%;
 }

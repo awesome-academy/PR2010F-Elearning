@@ -29,8 +29,13 @@
       <div class="pba">Questions (<%=@course.questions.count%>)</div>
       <% @course.questions.each.with_index(1) do |question, index|%>
       <div class="pbaa">
-        <div class=""><%=index%>- Quiz</div>
-        <div class="fXyePKshow"><%= question.title %></div>
+        <div class="ct-qs">
+          <div class="ct-qs-f">
+            <div class=""><%=index%>- Quiz</div>
+            <div class="fXyePKshow"><%= question.title %></div>
+          </div>
+          <div style="margin-top:-8px; margin-left: 8px"><%= image_tag question.img_question, width: "100px", height: "80px" if question.img_question.attached?%></div>
+        </div>
           <% question.answers.each.with_index(1) do |a,index|%>
             <ul>
               <li><%= a.content%></li>

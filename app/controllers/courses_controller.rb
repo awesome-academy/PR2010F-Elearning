@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
            redirect_to categories_path
          end
      else
-       @courses = Course.all.paginate(page: params[:page]).per_page(4)
+       @courses = Course.search(params[:search]).paginate(page: params[:page]).per_page(4)
      end
   end
 

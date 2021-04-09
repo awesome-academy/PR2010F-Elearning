@@ -9,11 +9,14 @@
         <div class="card-header">
           <%= category.category%>
         </div>
+        <%= link_to admin_category_path(category) do %>
         <div class="card-body">
-          <%= image_tag category.img_category,class:"imgc" if category.img_category.attached?%>
+          <div class="body-c4rd">
+            <%= image_tag category.img_category, width: "100%", height: "150px;" if category.img_category.attached?%>
+          </div>
         </div>
+        <%end%>
         <div class="card-footer">
-          <%= link_to 'Show', admin_category_path(category) %>
           <%= link_to 'Edit', edit_admin_category_path(category) %>
           <%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>

@@ -53,6 +53,6 @@ class Admin::CoursesController < ApplicationController
 
   def course_param
     params.require(:course).permit(:title, :description,:category_id,:img_course,
-       questions_attributes: [:id, :title, :_destroy, answers_attributes: [:id,:correct,:content,:_destroy]])
+       questions_attributes: [:id, :title, :img_question,:_destroy, answers_attributes: [:id,:correct,:content,:_destroy]])
   end
 end

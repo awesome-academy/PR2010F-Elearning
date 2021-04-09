@@ -1,9 +1,9 @@
 <%= javascript_pack_tag 'quantity', 'data-turbolinks-track': 'reload' %>
-<div class="han">
+<div class="row">
   <div class="col4">
     <div class="pa">
-      <div class="">
-        <img class="card-img-top" src="https://www.gettyimages.in/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" alt="">
+      <div class="borv">
+        <%= image_tag @course.img_course,class:"imgc" if @course.img_course.attached?%>
       </div>
       <div class="pacover">
         <div class="fEDjiT">
@@ -55,7 +55,6 @@
             </span>
           </div>
         </div>
-
         <div class="des">
           <div class="infor"><span><%= @course.description %></span></div>
         </div>
@@ -64,12 +63,45 @@
     </div>
   </div>
   <div class="col8">
-    <div class="pbp">Questions (<%=@course.questions.count%>)</div>
-    <% @questions.each.with_index(1) do |question, index|%>
-    <div class="pb">
-      <div class=""><%=index%>- Quiz</div>
-      <div class="fXyePK"><%= question.title %></div>
+    <div class="mosaic-hero">
+      <div class="layout-pair">
+        <div class="layout-item" style="opacity: 1; display: flex; transform: scaleX(1) scaleY(1);">
+          <article class="col-item">
+            <div class="col-img-container"><img src="https://kahoot.com/files/2021/01/Creator-Screen-original.jpg" alt="" width="400" height="280"></div>
+            <div class="col-text-container">
+              <span class="p1s2">Create</span>
+              <span class="pintro">Creating a learning game of Kahoot! only takes minutes. You can create a kahoot from scratch, use our question bank to mix and match existing questions, edit a template, or customize existing kahoots created by other users.</span>
+            </div>
+          </article>
+        </div>
+        <div class="layout-item" style="opacity: 1; display: flex; transform: scaleX(1) scaleY(1);">
+          <article class="col-item">
+            <div class="col-img-container"><img src="https://kahoot.com/files/2021/03/HowItWorks-Screenshot_SMALL_0321.png" alt="" width="400" height="280"></div>
+            <div class="col-text-container">
+              <span class="p1s2">Host live</span>
+              <span class="pintro">Host a kahoot live in class or via a video conferencing tool to connect students virtually! Questions and answers are displayed on a shared screen while students answer on their devices but you can choose to display questions on their devices, too!</span>
+            </div>
+          </article>
+        </div>
+        <div class="layout-item" style="opacity: 1; display: flex; transform: scaleX(1) scaleY(1);">
+          <article class="col-item">
+            <div class="col-img-container"><img src="https://kahoot.com/files/2020/02/how-it-works-Assign-student-paced-kahoot.png" alt="" width="400" height="280"></div>
+            <div class="col-text-container">
+              <span class="p1s2">Assign a challenge</span>
+              <span class="pintro">In student-paced challenges, questions and answers are displayed on players’ screens and you can turn the timer off. Assign them as part of distance learning or for review and formative assessment in class. Now, you can share challenges directly in Microsoft Teams!</span>
+            </div>
+          </article>
+        </div>
+        <div class="layout-item" style="opacity: 1; display: flex; transform: scaleX(1) scaleY(1);">
+            <article class="col-item">
+              <div class="col-img-container"><img src="https://kahoot.com/files/2020/02/how-it-works-Assign-student-paced-kahoot.png" alt="" width="400" height="280"></div>
+              <div class="col-text-container">
+                <span class="p1s2">Share</span>
+                <span class="pintro">Share kahoots with your students to engage them after class, for example, directly in Microsoft Teams. By using groups, you can also share kahoots with your colleagues and organize them around specific topics or subjects.</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
     </div>
-    <%end%>
   </div>
-</div>

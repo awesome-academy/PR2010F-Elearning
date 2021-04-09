@@ -2,6 +2,8 @@
   <div class="row">
     <div class="col-md-11">
       Question:<%= f.text_field :title, class: 'form-control ', :required => true %>
+      <%= f.label :image %>
+      <%= f.file_field (:img_question)%>
     </div>
     <div class="f-delete">
       <div class="s-detete">

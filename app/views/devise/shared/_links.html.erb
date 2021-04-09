@@ -1,25 +1,23 @@
-
-
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <p>Forgot password? <%= link_to "Reset password?", new_password_path(resource_name), style:"color:#0056b3;"%></p>
+  <p>Forgot password? <%= link_to "Reset password?", new_password_path(:student), style:"color:#0056b3;"%></p>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(:student) %><br />
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(:student) %><br />
 <% end %>
 <div class="card__Wrapper-sc-1rk0phi-6 dwpREI"><hr class="card__CardLine-sc-1rk0phi-7 duoxcH"><span class="card__Text-sc-1rk0phi-8 hLCKiw">or</span></div>
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to omniauth_authorize_path(resource_name, provider) do%>
+    <%= link_to omniauth_authorize_path(:student, provider) do%>
     <button type="submit" name="button" class="_m3o8wbc" onlogin="checkLoginState();">
       <div class="_1a2vq1h">
         <div class="_fb4s8m">
           <div class="yc0l">
-            <img src="../assets/fbv.svg" width="30" height="30" alt="">
+            <img src="../assets/fbv.svg" style="margin-left: 3px;" width="30" height="30" alt="">
           </div>
           <div class="ttvfb" ">
             <span class="ttvfb-i">Continue with Facebook</span>
@@ -30,9 +28,9 @@
     <% end %>
   <% end %>
   <%- if controller_name != 'sessions' %>
-    <p>Already have an account? <%= link_to "Log in", new_session_path(resource_name) %></p>
+    <p>Already have an account? <%= link_to "Log in", new_session_path(:student) %></p>
   <% end %>
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <p>Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name),style:"color:#0056b3;" %></p>
+  <p>Don't have an account? <%= link_to "Sign up", new_registration_path(:student),style:"color:#0056b3;" %></p>
 <% end %>
 <% end %>
