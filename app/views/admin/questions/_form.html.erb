@@ -1,0 +1,20 @@
+<%= link_to 'Back', admin_questions_path %>
+
+
+<div class="flex-row d-flex justify-content-center">
+  <div class="card mt-5">
+      <div class="card-body">
+        <%= form_with(model: admin_question) do |f| %>
+
+        <%= f.label :Title %>
+        <%= f.text_field :title ,:required => true %>
+
+
+        <%= f.label :courses %>
+        <%= f.text_field :course_id  %>
+
+        <%= f.submit 'Create question'%>
+        <%end%>
+      </div>
+  </div>
+</div>

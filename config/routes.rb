@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/index', to: 'static_pages#index'
+    resources :courses
     resources :categories
     resources :questions
   end
+
 end

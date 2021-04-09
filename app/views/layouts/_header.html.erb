@@ -102,7 +102,7 @@
                       <span class="gsvIZw"><%= current_student.name %></span>
                     </div>
                     <div class="HAcQK">
-                      <span class="cebCEZ"><%= link_to "Profile", current_student %></span>
+                      <span class="cebCEZ"><%= link_to "Profile", current_student ,title: 'Add Question', 'data-toggle' => 'tooltip','data-placement'=> 'right'%></span>
                     </div>
                   </section>
                   <hr class="ivbnnc">
@@ -130,7 +130,7 @@
               <div class="bd-form">
                 <div class="form-login">
                   <div class="form">
-                    <%= form_for(resource_name, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <%= form_for("student", :url => student_session_path) do |f| %>
                     <div class="fi">
                       <%= f.label :"Username or email" , class: 'form-label' %>
                       <%= f.email_field :email,class: 'form-control', autocomplete: "email" %>
@@ -149,7 +149,6 @@
                       <%= f.submit "Log in", class: "_button" %>
                     </div>
                     <% end %>
-                    <%= render "devise/shared/links" %>
                   </div>
                 </div>
               </div>

@@ -44,11 +44,15 @@ class Admin::CategoriesController < ApplicationController
 
   private
 
-    def find_category
-      @category = Category.find(params[:id])
+  def find_category
+    @category = Category.find(params[:id])
+    unless @category.present?
+      flash[:success] = "Category doesn't exist"
+      redirect_to admin_categories_path
     end
+  end
 
     def category_params
-      params.require(:category).permit(:category)
+      params.require(:category).permit(:category,:img_category)
     end
 end

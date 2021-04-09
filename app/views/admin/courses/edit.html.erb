@@ -1,0 +1,53 @@
+<%= javascript_pack_tag 'course_edit', 'data-turbolinks-track': 'reload' %>
+  <h1>Course</h1>
+  <%= form_for [:admin, @course] do |f| %>
+  <%= f.hidden_field :category_id  %>
+  <p id="notice"><%= notice %></p>
+  <%= link_to '<i class="far fa-edit"></i>'.html_safe,edit_admin_course_path()  ,class: "btn btn-secondary"%>
+  <%= link_to '<i class="fas fa-arrow-circle-left"></i>'.html_safe, admin_courses_path(),class: "btn btn-primary" %>
+  <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, admin_courses_path(),class: "btn btn-info" %>
+  <div class="han">
+  <div class="col4">
+    <div class="pa">
+      <div class="img_co">
+        <% if @course.img_course.attached? %>
+        <%= image_tag @course.img_course,class:"imgc"%>
+        <% else %>
+        <img class="imagee" src="../../assets/adefault.svg">
+        <% end %>
+      </div>
+      <%= f.file_field (:img_course)%>
+      <div class="pacover">
+        <div class="fEDjiT">
+          <div class="infor"><%= f.text_field :title %></div>
+        </div>
+        <ul class="iHcOFk">
+          <li class="gqLYar"><b>9.6k </b>favorites</li>
+          <li class="gqLYar"><b>143.5 </b>plays</li>
+          <li class="gqLYar"><b>937.4 </b>players</li>
+        </ul>
+        <div class="des">
+          <div class="infor"><span><%= f.label :Description %></span></div>
+          <div class="infor"><span><%= f.text_area :description, style:'width:100%; height:150px'%></span></div>
+        </div>
+        <span> Created <%= time_ago_in_words(@course.created_at) %> ago.</span>
+      </div>
+    </div>
+  </div>
+  <div class="col8">
+    <div class="pbp">Questions (<%=@course.questions.count%>)</div>
+    <div class="fpb">
+    <%= f.fields_for :questions do |q|%>
+        <div id="qs<%=q.index+1%>" class="pb" >
+          <div class="qsx" data-pb="<%=q.index+1%>"><%=q.index+1%>- Quiz</div>
+          <div class="fXyePK"><%= q.text_field :title, class: 'fff' %></div>
+            <div class="allans" style= "hidden">
+              <%=render 'question_fields', f: q %>
+            </div>
+        </div>
+    <%end%>
+  </div>
+  </div>
+  </div>
+  <%= f.submit 'Update course'%>
+  <%end%>

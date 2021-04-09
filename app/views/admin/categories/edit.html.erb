@@ -1,9 +1,18 @@
-<h1>Editing Admin Category</h1>
+<h1>Admin Edit Category</h1>
 <%= link_to 'Show', @admin_category %> |
-<%= link_to 'Back', admin_categories_path %>
 <%= link_to 'Back', admin_categories_path %>
 <%= form_for [:admin, @category] do |f| %>
 <%= f.label :category %>
 <%= f.text_field (:category)%>
+<div class="imgcc">
+      <% if @category.img_category.attached? %>
+      <%= image_tag @category.img_category,class:"imgc"%>
+      <% else %>
+      <img class="imagee" src="../../assets/adefault.svg">
+      <% end %>
+ </div>
+ <div>
+   <%= f.file_field (:img_category)%>
+ </div>
 <%=f.submit 'Update category'%>
 <%end%>

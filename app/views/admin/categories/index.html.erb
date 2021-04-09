@@ -1,26 +1,25 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Admin Categories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h1>Categories</h1>
+<%= link_to 'New Category', new_admin_category_path %>
+<div class="container">
+  <div class="row">
     <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.category%></td>
-        <td><%= link_to 'Show', admin_category_path(category) %></td>
-        <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
-        <td><%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="col-md-3">
+      <div class="card mt-5">
+        <div class="card-header">
+          <%= category.category%>
+        </div>
+        <div class="card-body">
+          <%= image_tag category.img_category,class:"imgc" if category.img_category.attached?%>
+        </div>
+        <div class="card-footer">
+          <%= link_to 'Show', admin_category_path(category) %>
+          <%= link_to 'Edit', edit_admin_category_path(category) %>
+          <%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
+  </div>
+</div>
 <br>
-
-<%= link_to 'New Admin Category', new_admin_category_path %>

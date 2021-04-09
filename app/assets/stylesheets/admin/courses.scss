@@ -1,3 +1,63 @@
 // Place all the styles related to the admin/courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.bt-addqs{
+  margin: 8px 0;
+}
+.f-delete{
+  display: flex;
+}
+.s-detete{
+  margin-top: 30px
+}
+.answers{
+  width: 65%;
+}
+.pba{
+  margin: 16px 16px 0px 25px;
+  height: auto;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.pbaa{
+  margin:16px 8px 0px 25px;
+  border-radius:10px;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+  cursor: pointer;
+  overflow: hidden;
+  width: 100%;
+  height: calc(112px - 1rem);
+  padding: 16px;
+}
+.fXyePKshow {
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  padding: 8px 0 8px 0 ;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.imgc{
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
+}
+.imgcc{
+  width: 450px;
+  height: 300px;
+}
+.card-header{
+  text-align: center;
+}
+.card-body{
+  width:200px;
+  height: 200px;
+  text-align: center;
+}
+.han{
+  width:98%;
+  height: auto;
+}

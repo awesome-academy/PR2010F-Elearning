@@ -1,4 +1,4 @@
-  // $(document).ready(function(){
+  $(document).ready(function(){
     $("input:radio").click(function(){
       if ($(this).is(":checked")){
         $(".iObVhe").css({"color":"#fff"}) && $(this).closest(".iObVhe").css({"background":"#f283dc","color":"red"});

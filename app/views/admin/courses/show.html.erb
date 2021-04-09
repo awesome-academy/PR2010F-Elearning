@@ -1,4 +1,42 @@
+<%= javascript_pack_tag 'course_show', 'data-turbolinks-track': 'reload' %>
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_admin_course_path(@admin_course) %> |
-<%= link_to 'Back', admin_courses_path %>
+<%= link_to '<i class="fas fa-arrow-circle-left"></i>'.html_safe, admin_courses_path(),class: "btn btn-primary" %>
+<%= link_to '<i class="far fa-edit"></i>'.html_safe,edit_admin_course_path()  ,class: "btn btn-secondary"%>
+<%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, admin_courses_path(),class: "btn btn-info" %>
+  <div class="han">
+    <div class="col4">
+      <div class="pa">
+        <div class="">
+          <%= image_tag @course.img_course,class:"imgc" if @course.img_course.attached?%>
+        </div>
+        <div class="pacover">
+          <div class="fEDjiT">
+            <div class="infor"><%= @course.title %></div>
+          </div>
+          <ul class="iHcOFk">
+            <li class="gqLYar"><b>9.6k </b>favorites</li>
+            <li class="gqLYar"><b>143.5 </b>plays</li>
+            <li class="gqLYar"><b>937.4 </b>players</li>
+          </ul>
+          <div class="des">
+            <div class="infor"><span><%= @course.description %></span></div>
+          </div>
+          <span> Created <%= time_ago_in_words(@course.created_at) %> ago.</span>
+        </div>
+      </div>
+    </div>
+    <div class="col8">
+      <div class="pba">Questions (<%=@course.questions.count%>)</div>
+      <% @course.questions.each.with_index(1) do |question, index|%>
+      <div class="pbaa">
+        <div class=""><%=index%>- Quiz</div>
+        <div class="fXyePKshow"><%= question.title %></div>
+          <% question.answers.each.with_index(1) do |a,index|%>
+            <ul>
+              <li><%= a.content%></li>
+            </ul>
+          <%end%>
+      </div>
+      <%end%>
+    </div>
+  </div>

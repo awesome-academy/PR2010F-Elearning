@@ -11,7 +11,7 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-
+gem 'cocoon'
 gem "devise"
 gem "omniauth", "~> 1.9.1"
 gem "omniauth-facebook"

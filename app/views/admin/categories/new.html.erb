@@ -1,7 +1,9 @@
-<h1>New Admin Category</h1>
-<%= link_to 'Back', admin_categories_path %>
+<h1>New Category</h1>
+<%= link_to '<i class="fas fa-arrow-circle-left"></i>'.html_safe, admin_categories_path,class: "btn btn-primary" %>
 <%= form_for [:admin, @category] do |f| %>
 <%= f.label :category %>
 <%= f.text_field (:category)%>
-<%=f.submit 'Create category'%>
+<%= f.label :image %>
+<%= f.file_field (:img_category)%>
+<%=f.submit 'Create category', class:"btn btn-primary"%>
 <%end%>

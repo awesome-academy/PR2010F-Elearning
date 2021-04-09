@@ -1,17 +1,16 @@
 <p id="notice"><%= notice %></p>
 <div class="container-xem-cate">
-
-    <div class="d-flex flex-row justify-conten-center">
-      <div class="col md-4">
-        <div class="car">
-          <%= link_to 'Back', admin_categories_path, class:'btn btn-success mt-3 mb-3'%>
-          <%= link_to 'Edit', edit_admin_category_path, class:'btn btn-warning mt-3 mb-3'%>
-          <%= link_to 'Delete', admin_category_path, method: :delete, data: { confirm: 'Are you sure?' },class:'btn btn-danger' %>
-        </div><br>
-        <h5>  <%= @category.category%> </h5>
-        <div class="car">
-        <%= link_to "View",course_path,class:'btn btn-primary'%>
-        </div>
+  <div class="d-flex flex-row justify-conten-center">
+    <div class="col md-4">
+      <div class="car">
+        <%= link_to 'Back', admin_categories_path, class:'btn btn-success mt-3 mb-3'%>
+        <%= link_to 'Edit', edit_admin_category_path, class:'btn btn-warning mt-3 mb-3'%>
+        <%= link_to 'Delete', admin_category_path, method: :delete, data: { confirm: 'Are you sure?' },class:'btn btn-danger' %>
+    </div><br>
+      <h5>  <%= @category.category%> </h5>
+    <div class="imgcc">
+        <%= image_tag @category.img_category,class:"imgc" if @category.img_category.attached?%>
      </div>
    </div>
+ </div>
 </div>

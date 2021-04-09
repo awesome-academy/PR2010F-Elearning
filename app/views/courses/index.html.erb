@@ -1,9 +1,16 @@
   <div calss="d-lex flex-row justify-content-content">
     <span> <%= link_to "All Course", courses_path %> </span><br>
+    <div class="wrapper">
+      <div class="btn">
+        <button type="button">Hover Me !</button>
+      </div>
+    </div>
     <div class="category_cha">
+
       <% @categories.each do |category| %>
-      <%= link_to category.category, courses_path(:cate => category.id) ,class: "btn-con"%>
+      <%= link_to category.category, courses_path(:cate => category.id) ,class: "btn btn-outline-danger"%>
       <% end %>
+
     </div>
 
     <div class="inner-body">
