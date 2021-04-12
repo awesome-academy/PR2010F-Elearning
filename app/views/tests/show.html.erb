@@ -1,6 +1,6 @@
 <%= javascript_pack_tag 'result', 'data-turbolinks-track': 'reload' %>
 <div class="row">
-  <div class="col-md-9", id="vques">
+  <div class="col-md-8", id="vques">
     <% @results.each.with_index(1) do |result,index|%>
     <div id="tab-<%=index%>" class="tab-content">
       <header class="styles__TopContent-sc-468pf5-0 licRHD question-top-content__QuestionTopContent-sc-16zbque-0 daoHFe">
@@ -17,7 +17,7 @@
       </header>
       <div class="fGChPb">
         <div class="kNvHMs">
-          <img class="c4f" src="https://www.gettyimages.in/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" alt="">
+          <div class="c4f"><%= image_tag result.question.img_question, width: "100%", height: "250px" if result.question.img_question.attached?%></div>
         </div>
       </div>
       <div class="styles__Wrapper-v1iz1v-1 hhHkpR question-choices__QuestionChoices-vfgbd-0 jFoRjK">
@@ -120,7 +120,7 @@
     </div>
     <%end%>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
     <%= render 'questions_list'%>
   </div>
 </div>

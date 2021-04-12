@@ -6011,6 +6011,7 @@ a.close.disabled {
   border: 1px solid #CED4DA;
   border-radius: 0.3rem;
   outline: 0;
+  top:-60px;
 }
 
 .modal-backdrop {

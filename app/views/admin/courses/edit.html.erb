@@ -13,13 +13,17 @@
         <% if @course.img_course.attached? %>
         <%= image_tag @course.img_course,class:"imgc"%>
         <% else %>
-        <img class="imagee" src="../../assets/adefault.svg">
+        <img class="imageee" src="../../../assets/adefault.svg">
         <% end %>
       </div>
       <%= f.file_field (:img_course)%>
       <div class="pacover">
         <div class="fEDjiT">
           <div class="infor"><%= f.text_field :title %></div>
+        </div>
+        <div class="field">
+          <%= f.label :category %>
+          <%= f.select :category_id, Category.all.map {|e| [e.category,e.id] }, class:'form-control' %>
         </div>
         <ul class="iHcOFk">
           <li class="gqLYar"><b>9.6k </b>favorites</li>
@@ -46,6 +50,12 @@
             </div>
         </div>
     <%end%>
+    <div class="addqs">
+      <div class="bt-addqs" >
+        <%= link_to_add_association "Add Question", f, :questions, class:'btn btn-danger'%>
+      </div>
+    </div>
+
   </div>
   </div>
   </div>

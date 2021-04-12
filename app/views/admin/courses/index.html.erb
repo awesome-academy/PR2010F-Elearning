@@ -9,11 +9,12 @@
         <div class="card-header">
           <%= course.title%>
         </div>
+        <%= link_to admin_course_path(course) do %>
         <div class="card-body">
-          <%= image_tag course.img_course,class:"imgc" if course.img_course.attached?%>
+          <%= image_tag course.img_course, width: "100%", height: "150px" if course.img_course.attached?%>
         </div>
+        <%end%>
         <div class="card-footer">
-          <%= link_to 'Show', admin_course_path(course) %>
           <%= link_to 'Edit', edit_admin_course_path(course) %>
           <%= link_to 'Destroy', admin_course_path(course), method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>

@@ -5,12 +5,12 @@
   <div class="han">
   <div class="col4">
     <div class="pa">
-      <div class="container">
-        <%= f.label :image %>
-        <%= f.file_field (:img_course)%>
-      </div>
       <div class="pacover">
-        <div class="fEDjiT">
+        <div class="fEDjid">
+          <%= f.label :image %>
+          <%= f.file_field (:img_course)%>
+        </div>
+        <div class="fEDjid">
           <%= f.label :category %><br>
           <%= f.select :category_id, Category.all.map {|e| [e.category,e.id] }, class:'form-control' %>
         </div>

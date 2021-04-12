@@ -1,30 +1,28 @@
-  <div calss="d-lex flex-row justify-content-content">
-    <span> <%= link_to "All Course", courses_path %> </span><br>
-    <div class="wrapper">
-      <div class="btn">
-        <button type="button">Hover Me !</button>
-      </div>
-    </div>
-    <div class="category_cha">
-
-      <% @categories.each do |category| %>
-      <%= link_to category.category, courses_path(:cate => category.id) ,class: "btn btn-outline-danger"%>
+<div class="inner-body">
+  <div class="mosaic-hero" style="background:#fff">
+  <div class="nav3cate">
+    <div class="tksot">
+      <%= form_tag courses_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search],placeholder: "Find me a kahoot about...",class:'search-field' %>
+      <%= button_tag type: 'submit', class: "icon-button" do %>
+      <i class="fas fa-search"></i>
       <% end %>
-
+      <%end%>
     </div>
-
-    <div class="inner-body">
-      <div class="ciFKmO">
-        <div class="contain">
-          <input type="text" placeholder="Search...">
-          <div class="search"></div>
-        </div>
-      </div>
-      <h4 class="d-flex justify-content-between mb-4">
-
-      </h4>
-      <div class="course-index">
-        <%= render @courses %>
-      </div>
-      <%= will_paginate @courses, list_classes: %w(pagination justify-content-end) , class:'paginate'%>
+    <div class="kate">
+      <button class="gDbUro">
+      <%= link_to "All Course", courses_path %>
+      </button>
+      <% @categories.each do |category| %>
+        <button class="gDbUro">
+        <%= link_to category.category, courses_path(:cate => category.id)%>
+        </button>
+      <% end %>
     </div>
+  </div>
+  <div class="course-index">
+    <%= render @courses %>
+  </div>
+  <%= will_paginate @courses, list_classes: %w(pagination justify-content-end) , class:'paginate'%>
+</div>
+</div>
