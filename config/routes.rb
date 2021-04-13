@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   resources :tests
   resources :results
   root 'static_pages#index'
-
   namespace :admin do
     get '/index', to: 'static_pages#index'
     resources :courses
     resources :categories
     resources :questions
     resources :students
+    resources :search
   end
 end

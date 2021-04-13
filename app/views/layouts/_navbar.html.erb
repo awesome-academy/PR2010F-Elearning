@@ -37,10 +37,10 @@
                       <%= link_to "Student", admin_students_path, class:"btn btn-warning" ,style:"width:90px"%>
                     </th>
                     <th>
-                      <form class="form-inline" action="/action_page.php">
-                        <input class="form-control mr-sm-1" type="text" placeholder="Search"style="width:300px">
-                        <button class="btn btn-outline-info" type="submit">Search</button>
-                      </form>
+                      <%= form_tag "/admin/courses", method: :get, class: "form-inline" do %>
+                      <%= text_field_tag "course", params[:course], class: "form-control mr-sm-1",placeholder:"Search...",style:"width:300px" %>
+                      <%= submit_tag "Search" ,class: "btn btn-outline-info"%>
+                      <% end %>
                     </th>
                   </tr>
                 </thead>
@@ -66,13 +66,13 @@
             </div>
           </li>
           <!-- <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
-              <i class="icon-ellipsis"></i>
-            </a>
-          </li> -->
-        </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-          <span class="icon-menu"></span>
-        </button>
-      </div>
-    </nav>
+          <a class="nav-link" href="#">
+          <i class="icon-ellipsis"></i>
+        </a>
+      </li> -->
+    </ul>
+    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+      <span class="icon-menu"></span>
+    </button>
+  </div>
+</nav>

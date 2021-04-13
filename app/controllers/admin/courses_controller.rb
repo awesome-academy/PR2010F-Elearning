@@ -3,7 +3,12 @@ class Admin::CoursesController < ApplicationController
 
   def index
     @categories = Category.all
-    @courses = Course.all
+    if params[:course].present?
+      Course.reindex
+      @courses = Course.search params[:course]
+    else
+      @courses = Course.all
+    end
   end
 
   def show
