@@ -7,6 +7,7 @@ class Student < ApplicationRecord
   has_one_attached :avatar
   has_many :tests
   has_many :results, through: :tests
+  has_many :notifications
 
   def avatar_thumbnail
     if avatar.attached?

@@ -18,7 +18,8 @@ gem "omniauth-facebook"
 gem 'cancancan'
 gem 'searchkick'
 gem 'will_paginate-bootstrap4'
-
+gem "ffaker"
+gem "whenever"
 gem 'image_processing'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

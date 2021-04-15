@@ -1,8 +1,6 @@
 class TestsController < ApplicationController
   before_action :find_test, only: [:show]
   before_action :logged_in_user, only: [:new,:create]
-
-
   def new
     @test = Test.new
     @results = @test.results.build

@@ -63,10 +63,14 @@
               </a>
               </div>
             </div>
-            <div class="ull3">
+            <div class="ull2">
               <% if current_student%>
-              <div class="item3"><a class="SoD" href="#">Play</a></div>
-              <div class="btn-group">
+              <div class="item3">
+                <div id="notifications">
+                  <%= render "notifications/notification_center", notifications: @notifications %>
+                </div>
+              </div>
+              <div class="btn-group fixmore">
                 <div class="facc" -acc data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div class="acc1" aria-label="Menu điều hướng chính">
                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 3px; overflow: visible;" aria-hidden="true" role="presentation" focusable="false">
