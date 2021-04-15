@@ -8,8 +8,6 @@ class Admin::StudentsController < ApplicationController
   def show
   end
 
-
-
   private
     def find_student
       @student = Student.find(params[:id])
