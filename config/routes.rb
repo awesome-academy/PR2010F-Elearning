@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :results
   resources :notifications
   root 'static_pages#index'
-  mount ActionCable.server => '/cable'
+  # mount ActionCable.server => '/cable'
   namespace :admin do
     get '/index', to: 'static_pages#index'
     resources :courses

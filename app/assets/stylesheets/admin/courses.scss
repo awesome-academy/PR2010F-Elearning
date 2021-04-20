@@ -176,7 +176,6 @@ flex-wrap:wrap;
   margin-right: 16px;
 }
 .tksot{
-  margin: auto 16px;
   display: flex;
 }
 .kate{
@@ -186,10 +185,10 @@ flex-wrap:wrap;
 background-attachment: scroll;
 background-clip: border-box;
 background-color: rgb(255, 255, 255);
-border-color: rgb(242, 242, 242);
+border-color: rgb(212, 212, 212)!important;;
 border-radius: 4px;
-border-style: solid;
-border-width: 1px;
+border-style: solid!important;
+border-width: 1px!important;
 box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 8px 0px, rgba(0, 0, 0, 0.15) 0px 2px 4px 0px;
 color: rgb(51, 51, 51);
 cursor: text;
@@ -201,7 +200,8 @@ outline-width: 0px;
 padding-right: 14px;
 padding: 0 14px 0 34px;
 width: 280px;
-z-index: 90
+z-index: 90;
+position:absolute                                                                                                                                                                                                                             ;
 }
 .icon-button{
 border-color: rgb(255, 255, 255);
@@ -215,8 +215,6 @@ line-height: normal;
 margin: 5px;
 padding:0px;
 position: absolute;
-top: 120px;
-left: 93px;
 width: 24px;
 z-index:90;
 }

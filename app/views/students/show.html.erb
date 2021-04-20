@@ -1,13 +1,13 @@
-<span class="_1p3joam"><strong><%= @student.name %></strong>,</span>
-<span class="_1p3joam"><%= @student.email %>·</span>
-
 <div class="container">
   <h2>Contextual Classes</h2>
   <table class="table">
+    <span class="_1p3joam"><strong><%= @student.name %></strong>,</span>
+    <span class="_1p3joam"><%= @student.email %>·</span>
     <thead>
       <tr class="table-primary">
         <th>Exam</th>
         <th>Start time</th>
+        <th>Day test</th>
         <th>Result</th>
         <th>Detail</th>
       </tr>
@@ -16,8 +16,9 @@
       <% @tests.each_with_index do |test,i|%>
       <tr class="<%= Result::RESULT_COLOR[i] %>">
         <td><span><%= test.course.title %></span></td>
-        <td><%= time_ago_in_words(test.created_at) %></td>
-        <td><%=test.mark%>/<%=test.course.questions.count%></td>
+        <td><%= time_ago_in_words(test.created_at) %> ago</td>
+        <td><%= test.created_at.strftime("%d %b. %Y") %></td>
+        <td><%=test.mark%>/<%=test.quantity%></td>
         <td><%= link_to '<i class="fas fa-info-circle"></i>'.html_safe, test_path(test), class:'btn btn-success'%></td>
       </tr>
       <% end %>
