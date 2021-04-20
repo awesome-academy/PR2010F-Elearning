@@ -1,7 +1,9 @@
-<%= form_for(@new_notification) do |f| %>
+<%= form_for(@notification) do |f| %>
   <div class="field">
     <%= f.label :event %>
     <%= f.text_field :event %>
+    <%= f.label :student %>
+    <%= f.text_field :student_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

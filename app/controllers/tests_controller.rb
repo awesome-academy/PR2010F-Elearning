@@ -24,7 +24,7 @@ class TestsController < ApplicationController
     end
     if @test.save!
       flash[:success] = "You can review the results in the report section"
-      redirect_to root_path
+      redirect_to current_student
     else
       render :new
     end
@@ -38,8 +38,7 @@ class TestsController < ApplicationController
       redirect_to courses_url
     end
   end
-
   def test_params
-    params.require(:test).permit(:course_id,:student_id, results_attributes:[:question_id,:answer_id])
+    params.require(:test).permit(:course_id,:quantity,:student_id, results_attributes:[:question_id,:answer_id])
   end
 end

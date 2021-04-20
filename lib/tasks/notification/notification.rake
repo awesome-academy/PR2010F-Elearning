@@ -3,8 +3,7 @@ namespace :notification do
   task delete: :environment do
     students = Student.all
     students.each do |student|
-      notifications = student.notifications.last
-      notifications.destroy
+      student.notifications.where.not(read_at:nil).delete_all
     end
   end
 end

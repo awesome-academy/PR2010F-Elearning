@@ -121,6 +121,33 @@
     <%end%>
   </div>
   <div class="col-md-4">
-    <%= render 'questions_list'%>
+    <div class="test-view__left not-for-mobile">
+    <div class="flexx">
+      <div class="goijla">Question List</div>
+    </div>
+    <hr>
+    <div class="h-full flex flex-col">
+      <div class="flex flex-col label-question justify-center">
+        <div class="ctn-demo">
+        </div>
+        <hr>
+      </div>
+      <div class="question-list">
+        <div class="list-item">
+          <div class="question-list">
+           <div class="list-item">
+             <% @course.questions.sample(@course.quantity).each.with_index(1) do |question,index|%>
+             <div class="id-items">
+               <ul class="tabs">
+                 <span id="idtab<%=index%>" class="marqs"><li class="tab-link" data-tab="tab-<%=index%>"><%=index%></li></span>
+               </ul>
+             </div>
+             <%end%>
+           </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    </div>
   </div>
 </div>

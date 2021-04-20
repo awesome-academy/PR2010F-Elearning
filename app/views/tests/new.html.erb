@@ -1,4 +1,6 @@
  <%= javascript_pack_tag 'result', 'data-turbolinks-track': 'reload' %>
+ <%= javascript_pack_tag 'timer', 'data-turbolinks-track': 'reload' %>
+ 
 <div class="row">
   <div class="col-md-8", id="vques">
     <%= render 'status_form'%>
@@ -10,6 +12,6 @@
       <div type="button" value="+" id="add" class="wow">Next Question</div>
     </div>
   </div>
-  <span id="numbersQ"><%= @course.questions.count%></span>
+  <span id="numbersQ"><%= @course.quantity%></span>
   <input type="hidden" value="1" id="value">
 </div>

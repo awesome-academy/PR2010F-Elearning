@@ -1,6 +1,7 @@
 <%= form_for @test do |test| %>
 <%= test.hidden_field :course_id, value: params[:course_id] %>
-<% @course.questions.each.with_index(1) do |question,index|%>
+<%= test.hidden_field :quantity, value: @course.quantity %>
+<% @course.questions.sample(@course.quantity).each.with_index(1) do |question,index|%>
 <div id="tab-<%=index%>" class="tab-content">
   <%= test.fields_for :results do |result| %>
   <header class="styles__TopContent-sc-468pf5-0 licRHD question-top-content__QuestionTopContent-sc-16zbque-0 daoHFe">
@@ -44,7 +45,7 @@
   <% end %>
 </div>
 <%end%>
-<button type="button" class="submyt" data-toggle="modal" data-target="#exampleModal">
+<button type="button" id="sapmyt" class="submyt" data-toggle="modal" data-target="#exampleModal">
   Submit
 </button>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -63,7 +64,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <%= test.submit "Yes", class:"btn btn-primary" %>
+        <%= test.submit "Yes", id:'nopb', class:"btn btn-primary" %>
       </div>
     </div>
   </div>

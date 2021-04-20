@@ -7,13 +7,13 @@
     <div id="notificationsBody" class="notifications">
         <% @notiunread.each do |notification|%>
           <%= link_to notification_path(notification.id,read_at: Time.zone.now), method: :patch ,remote: true, class:"dropdown-item" do %>
-          <%= notification.event %> - <%= notification.created_at.strftime("%d %b. %Y") %><i class="fas fa-info-circle"></i>
+          <%= notification.event %> - <%= time_ago_in_words(notification.created_at) %> ago.<i class="fas fa-info-circle" style="margin-left: 4px;"></i>
           <%end%>
         <%end%>
         <div class="dropdown-divider ivbnnc"></div>
       <% @notiread.each do |notification|%>
         <%= link_to notification_path(notification.id), class:"dropdown-item" do %>
-        <%= notification.event %> - <%= notification.created_at.strftime("%d %b. %Y") %> - <%= notification.read_at%>.
+        <%= notification.event %> - <%= time_ago_in_words(notification.created_at) %> ago.
         <%end%>
       <%end%>
     </div>

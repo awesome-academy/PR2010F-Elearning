@@ -1,0 +1,31 @@
+<div class="des">Please, choose the number of questions and times you want to do the test</div>
+<div class="btn-group">
+  <div class="des">Questions</div>
+  <button type="button" class="btn btn-success">
+    <%= @course.quantity if @course.quantity?%>
+  </button>
+  <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+  <div class="dropdown-menu dropdown-menu-right">
+    <% for i in 1..@course.questions.count %>
+    <%= link_to course_path(@course, quantity:i), method: :patch ,remote: true, class:"dropdown-item" do %>
+    <li style="text-align: center;"><%= i%><li>
+      <%end%>
+      <% end %>
+    </div>
+  </div>
+  <div class="btn-group">
+    <div class="des">Time </div>
+    <button type="button" class="btn btn-danger">
+      <%= @course.timer if @course.timer?%>
+    </button>
+    <button id="btntime" type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btntime">
+      <% for i in 1..60 %>
+      <% if i % 5 == 0 %>
+      <%= link_to course_path(@course, timer:i), method: :patch ,remote: true, class:"dropdown-item" do %>
+      <li style="text-align: center;"><%= i%><li>
+        <%end%>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
