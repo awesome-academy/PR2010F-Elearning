@@ -38,7 +38,11 @@
         </div>
           <% question.answers.each.with_index(1) do |a,index|%>
             <ul>
+              <% if a.correct%>
+              <li><%= a.content%> <i class="fas fa-check-circle green"></i></li>
+              <%else%>
               <li><%= a.content%></li>
+              <%end%>
             </ul>
           <%end%>
       </div>

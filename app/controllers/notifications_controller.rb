@@ -15,13 +15,14 @@ class NotificationsController < ApplicationController
     end
   end
   def create
-    @notification = Notification.new(notification_params)
-      if @notification.save
-        redirect_to root_path
-      else
-        render :new
-      end
+    @notification = Notification.new notification_params
+    if @notification.save
+      counter = @notiunread.count
+      flash[:success] = "Create success."
+      redirect_to new_notification_path
+      NotificationBroadcastJob.perform_later(@notification,counter)
     end
+  end
   private
   def notification_params
     params.require(:notification).permit(:event,:student_id)

@@ -12,12 +12,15 @@ class CoursesController < ApplicationController
       end
     else
       @courses = Course.search(params[:search]).paginate(page: params[:page]).per_page(4)
+      flash.now[:notice] = 'No statuses to display' if @courses.empty?
     end
   end
   def show
     @test = Test.new
+    @like = Like.new
     @questions = @course.questions
   end
+
   def update
     if params[:quantity].present?
       @course.update(quantity: params[:quantity])

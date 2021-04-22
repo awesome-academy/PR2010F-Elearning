@@ -8,6 +8,7 @@ class Student < ApplicationRecord
   has_many :tests
   has_many :results, through: :tests
   has_many :notifications
+  has_many :likes, dependent: :destroy
 
   def avatar_thumbnail
     if avatar.attached?
