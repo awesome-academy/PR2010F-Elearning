@@ -10,7 +10,8 @@
           <div class="infor"><%= @course.title %></div>
         </div>
         <ul class="iHcOFk">
-          <li class="gqLYar"><b>9.6k </b>favorites</li>
+          <li class="gqLYar"> <b id="likecount"><%= @course.likes.count%></b>favorites</li>
+          <li class="hat"><div id="likefom"><%= render 'like_form'%></div><li>
           <li class="gqLYar"><b>143.5 </b>plays</li>
           <li class="gqLYar"><b>937.4 </b>players</li>
         </ul>
@@ -24,8 +25,8 @@
                 <div class="modal-body">
                   <div id="ch4ngeqs">
                     <div><%= render 'courses/choose_question'%></div>
-                    </div>
                   </div>
+                </div>
                 <div class="modal-footer">
                   <div class="hRbplL">
                     <div class="playtet btn btn-secondary" data-dismiss="modal">Close</div>
@@ -57,18 +58,18 @@
             </div>
           </div>
           <div class="css-y66n2r">
-            <span aria-expanded="false">
+            <!-- <span aria-expanded="false">
               <span class="icon__Icon-xvsbpg-0 fpITzr" style="display: inline-block; vertical-align: middle; width: 32px; height: 32px;">
                 <svg id="favorite" data-functional-selector="icon" viewBox="0 0 32 32" focusable="false" stroke="none" stroke-width="0">
                   <path style="fill: unset;" d="M26.9667277,12.3896591 C27.2256479,12.411986 27.4657062,12.5342334 27.6360473,12.7305039 C27.9980468,13.1476068 27.9533765,13.7791941 27.5362736,14.1411935 L22.0538904,18.8992985 L23.6929324,25.9682956 C23.751701,26.2217575 23.7093679,26.488145 23.5749207,26.710902 C23.2895358,27.183738 22.6748763,27.3356972 22.2020403,27.0503124 L15.9872238,23.2992985 L9.77622335,27.0480091 C9.55306656,27.1826976 9.28613973,27.2249318 9.03230252,27.1657152 C8.49445923,27.0402439 8.16016565,26.5025212 8.28563692,25.9646779 L9.93389043,18.8992985 L4.44528483,14.1445175 C4.24826151,13.9738361 4.12567319,13.7329675 4.10363686,13.4732278 C4.05694871,12.92292 4.4652131,12.4389591 5.01552089,12.392271 L12.2405571,11.7792985 L15.0672007,5.11002917 C15.1684118,4.87122854 15.3584445,4.68109269 15.5971902,4.57975201 C16.1055716,4.36395868 16.6926313,4.6011482 16.9084246,5.10952964 L19.7338904,11.7659652 L26.9667277,12.3896591 Z M15.9872238,20.8059652 L21.0138904,23.8459652 L19.6805571,18.1392985 L24.1072238,14.2992985 L18.2672238,13.7926319 L15.9872238,8.40596519 L13.7205571,13.7792985 L7.8805571,14.2859652 L12.3072238,18.1259652 L10.9738904,23.8326319 L15.9872238,20.8059652 Z">
                   </path>
                 </svg>
               </span>
-            </span>
+            </span> -->
           </div>
         </div>
         <div class="des">
-          <span><%= @course.description %></span> 
+          <span><%= @course.description %></span>
         </div>
         <span> Created <%= time_ago_in_words(@course.created_at) %> ago.</span>
       </div>
@@ -105,15 +106,15 @@
           </article>
         </div>
         <div class="layout-item" style="opacity: 1; display: flex; transform: scaleX(1) scaleY(1);">
-            <article class="col-item">
-              <div class="col-img-container"><img src="https://kahoot.com/files/2020/02/how-it-works-Assign-student-paced-kahoot.png" alt="" width="400" height="280"></div>
-              <div class="col-text-container">
-                <span class="p1s2">Share</span>
-                <span class="pintro">Share kahoots with your students to engage them after class, for example, directly in Microsoft Teams. By using groups, you can also share kahoots with your colleagues and organize them around specific topics or subjects.</span>
-              </div>
-            </article>
-          </div>
+          <article class="col-item">
+            <div class="col-img-container"><img src="https://kahoot.com/files/2020/02/how-it-works-Assign-student-paced-kahoot.png" alt="" width="400" height="280"></div>
+            <div class="col-text-container">
+              <span class="p1s2">Share</span>
+              <span class="pintro">Share kahoots with your students to engage them after class, for example, directly in Microsoft Teams. By using groups, you can also share kahoots with your colleagues and organize them around specific topics or subjects.</span>
+            </div>
+          </article>
         </div>
       </div>
     </div>
   </div>
+</div>

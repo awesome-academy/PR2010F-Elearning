@@ -136,7 +136,7 @@
         <div class="list-item">
           <div class="question-list">
            <div class="list-item">
-             <% @course.questions.sample(@course.quantity).each.with_index(1) do |question,index|%>
+             <% @course.questions.sample(@test.quantity).each.with_index(1) do |question,index|%>
              <div class="id-items">
                <ul class="tabs">
                  <span id="idtab<%=index%>" class="marqs"><li class="tab-link" data-tab="tab-<%=index%>"><%=index%></li></span>

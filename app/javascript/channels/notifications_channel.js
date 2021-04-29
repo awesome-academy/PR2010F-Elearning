@@ -1,15 +1,13 @@
 import consumer from "./consumer"
-
 consumer.subscriptions.create("NotificationsChannel", {
   connected() {
-    // Called when the subscription is ready for use on the server
+    const counter = document.getElementById('notification-counter').innerHTML
+    console.log("connected")
   },
-
   disconnected() {
-    // Called when the subscription has been terminated by the server
   },
-
   received(data) {
-    // Called when there's incoming data on the websocket for this channel
+    $('#notification-list').prepend('' + data.html);
+    $('#notification-counter').html(data.counter);
   }
 });

@@ -4,8 +4,9 @@ class Course < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :answers, through: :questions
   has_many :tests
+  has_many :likes, dependent: :destroy
   has_one_attached :img_course
-  
+
   def self.search(search)
     if search
       where(["title LIKE ?","%#{search}%"])

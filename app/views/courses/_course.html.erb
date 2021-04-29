@@ -8,9 +8,21 @@
     <span class="gUwoNY"><%=course.questions.count%> questions</span>
   <div class="hxYrsi">
     <!-- <div class="css-4v50qp"> -->
-      <div class="infor"><%= course.title %></div>
+      <div class="in4"><%= course.title %></div>
       <div class="infor"><span><%= course.description %></span></div>
     <!-- </div> -->
   </div>
 </div>
 <%end%>
+<script type="text/javascript">
+  $(document).ready(function(){
+    var availableTags = [];
+      $(".in4").each(function(){
+        availableTags.push($(this).text());
+      });
+      console.log(availableTags);
+    $( ".search-field" ).autocomplete({
+      source: availableTags
+    });
+  });
+</script>

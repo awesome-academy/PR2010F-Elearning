@@ -23,6 +23,7 @@ class TestsController < ApplicationController
       end
     end
     if @test.save!
+      Notification.create event: "You have a notice", student_id: current_student.id
       flash[:success] = "You can review the results in the report section"
       redirect_to current_student
     else

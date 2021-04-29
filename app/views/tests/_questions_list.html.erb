@@ -13,37 +13,74 @@
     <div class="question-list">
       <div class="list-item">
         <div class="question-list">
-         <div class="list-item">
-           <% @course.questions.sample(@course.quantity).each.with_index(1) do |question,index|%>
-           <div class="id-items">
-             <ul class="tabs">
-               <span id="idtab<%=index%>" class="marqs"><li class="tab-link" data-tab="tab-<%=index%>"><%=index%></li></span>
-             </ul>
-           </div>
-           <%end%>
-         </div>
-       </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  <button type="button" id="timesup"  data-toggle="modal" data-target="#exampleModal2">
-    yesssss
-  </button>
-  <div class="modal fade" id="exampleModal2" tabindex="3" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-        </div>
-        <div class="modal-body">
-          <div class="mado">
-            <img src="../../assets/war.svg" class="kotwsi">
-            <span class="p2s2">Time out, Please submit your test, you can review the results in the Report section</span>
+          <div class="list-item">
+            <% @course.questions.sample(@course.quantity).each.with_index(1) do |question,index|%>
+            <div class="id-items">
+              <ul class="tabs">
+                <span id="idtab<%=index%>" class="marqs"><li class="tab-link" data-tab="tab-<%=index%>"><%=index%></li></span>
+              </ul>
+            </div>
+            <%end%>
           </div>
         </div>
-        <div class="modal-footer">
-          <button id="acxep" type="button" class="btn btn-secondary" data-dismiss="modal">Submit</button>
-        </div>
       </div>
     </div>
   </div>
+</div>
+<button type="button" id="timesup"  data-toggle="modal" data-target="#exampleModal2">
+  yesssss
+</button>
+<div class="modal fade" id="exampleModal2" tabindex="3" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <div class="mado">
+          <img src="../../assets/war.svg" class="kotwsi">
+          <span class="p2s2">Time out, Please submit your test, you can review the results in the Report section</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="acxep" type="button" class="btn btn-secondary" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  if(localStorage.getItem("total_seconds")){
+    var total_seconds = localStorage.getItem("total_seconds");
+  } else {
+    var timer = document.getElementById("demo").innerHTML;
+    var total_seconds = timer*60;
+  }
+  var minutes = parseInt(total_seconds/60);
+  var seconds = parseInt(total_seconds%60);
+  function countDownTimer(){
+    if(seconds < 10){
+      seconds= "0"+ seconds ;
+    }
+    if(minutes < 10){
+      minutes= "0"+ minutes ;
+    }
+    document.getElementById("demo").innerHTML = minutes + " : " + seconds
+    if(total_seconds <= 0){
+      window.localStorage.removeItem('total_seconds');
+      document.getElementById('timesup').click();
+    }
+    else{
+      total_seconds = total_seconds -1;
+      minutes = parseInt(total_seconds/60);
+      seconds = parseInt(total_seconds%60);
+      localStorage.setItem("total_seconds",total_seconds)
+      setTimeout("countDownTimer()",1000);
+      $("#nopb").click(function() {
+        window.localStorage.removeItem('total_seconds');
+      });
+    }
+  }
+  setTimeout(countDownTimer(),1000);
+  $("#acxep").click(function() {
+    $("#nopb").click();
+  });
+</script>

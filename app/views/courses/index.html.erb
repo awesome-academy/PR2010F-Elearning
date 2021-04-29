@@ -1,28 +1,32 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <div class="inner-body">
   <div class="mosaic-hero" style="background:#fff">
-  <div class="nav3cate">
-    <div class="tksot">
-      <%= form_tag courses_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search],placeholder: "Find me a kahoot about...",class:'search-field' %>
-      <%= button_tag type: 'submit', class: "icon-button" do %>
-      <i class="fas fa-search"></i>
-      <% end %>
-      <%end%>
-    </div>
-    <div class="kate">
-      <button class="gDbUro">
-      <%= link_to "All Course", courses_path %>
-      </button>
-      <% @categories.each do |category| %>
+    <div class="nav3cate">
+      <div class="tksot">
+        <%= form_tag courses_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search],placeholder: "Find me a kahoot about...",class:'search-field' %>
+        <%= button_tag type: 'submit', class: "icon-button" do %>
+        <i class="fas fa-search"></i>
+        <% end %>
+        <%end%>
+      </div>
+      <div class="kate">
         <button class="gDbUro">
-        <%= link_to category.category, courses_path(:cate => category.id)%>
+          <%= link_to "All Course", courses_path %>
         </button>
-      <% end %>
+        <% @categories.each do |category| %>
+        <button class="gDbUro">
+          <%= link_to category.category, courses_path(:cate => category.id)%>
+        </button>
+        <% end %>
+      </div>
     </div>
+    <div class="course-index">
+      <%= render @courses %>
+    </div>
+    <%= will_paginate @courses, list_classes: %w(pagination justify-content-end) , class:'paginate'%>
   </div>
-  <div class="course-index">
-    <%= render @courses %>
-  </div>
-  <%= will_paginate @courses, list_classes: %w(pagination justify-content-end) , class:'paginate'%>
-</div>
 </div>

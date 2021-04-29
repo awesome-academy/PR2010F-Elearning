@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   get 'students/show'
   devise_for :students, controllers: { omniauth_callbacks: "omniauth_callbacks" }
   resources :students, only: [:show]
-  resources :courses
+  resources :courses do
+    resources :likes,only: [:create, :destroy]
+  end
   resources :categories
   resources :tests
   resources :results
